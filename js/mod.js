@@ -1,26 +1,25 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	name: "The Building Tree",
+	id: "buildingtree",
+	author: "Username42",
+	pointsName: "bricks",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
+	discordName: "Username42#0061",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0.5,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
-	name: "Literally nothing",
+	name: "The Pre-Pre-Pre-Alpha Version",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+		- Made the mod.<br>`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -51,7 +50,7 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [
+var displayThings = [`The Building Tree V0.0`
 ]
 
 // Determines when the game "ends"
