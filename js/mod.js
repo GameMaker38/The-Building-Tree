@@ -18,12 +18,14 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-		<h3>v0.01</h3><br>
-		- Changed prestige points to walls.<br>	
-		<h3>v0.00</h3><br>
-		- Made the mod.<br>`
+	<h3>v0.02</h3><br>
+	- Added rooms layer.<br>	
+	<h3>v0.01</h3><br>
+	- Changed prestige points to walls.<br>	
+	<h3>v0.00</h3><br>
+	- Made the mod.<br>`
 
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `Congratulations! You have reached the end and beaten the alpha! More content will come very soon, though!`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -52,12 +54,12 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [`The Building Tree V0.0`
+var displayThings = [`The Building Tree V0.02`
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.rooms.gte(new Decimal("25"))
 }
 
 

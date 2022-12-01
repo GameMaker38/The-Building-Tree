@@ -6,11 +6,11 @@ addLayer("w", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "red",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "walls", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player.bricks}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -22,7 +22,34 @@ addLayer("w", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "w", description: "W: Reset for walls", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "b", description: "B: Use bricks to build walls", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
+})
+addLayer("r", {
+    name: "rooms",
+    symbol: "R",
+    position: 0,
+    startData { return {
+        unlocked: false,
+        points: new Decimal(4),
+    }},
+    color: "white",
+    requires: new Decimal(10),
+    resource: "rooms",
+    baseResource: "walls",
+    baseAmount() {return player.walls},
+    type: "normal",
+    exponent: 0.1,
+    gainMult() {
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() {
+        return new Decimal(1)
+    },
+    row: 1,
+    hotkeys: [
+        {key: "b", description: "B: Use walls to build rooms", onPress(){if (canReset(this.layer)) doReset(this.layer)}}
+    ]
 })
